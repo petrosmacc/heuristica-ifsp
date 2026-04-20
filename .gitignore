@@ -1,18 +1,15 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# Banco de dados SQLite (será gerado localmente)
+*.db
+*.db-journal
 
-# Other files and folders
-.settings/
+# Ambiente virtual
+venv/
+env/
+.env
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# Cache Python
+__pycache__/
+*.pyc
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Arquivos do Streamlit
+.streamlit/secrets.toml
