@@ -1,0 +1,15 @@
+# Banco de dados SQLite (será gerado localmente)
+*.db
+*.db-journal
+
+# Ambiente virtual
+venv/
+env/
+.env
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Arquivos do Streamlit
+.streamlit/secrets.toml

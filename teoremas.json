@@ -1,0 +1,2664 @@
+{
+  "EC-01": {
+    "nome": "Teorema Fundamental do Cálculo",
+    "curso": "Engenharia Civil",
+    "disciplinas": [
+      "Cálculo I",
+      "Cálculo II",
+      "Análise Matemática"
+    ],
+    "formulação": "Se f é contínua em [a,b] e F é primitiva de f, então ∫ₐᵇ f(x)dx = F(b) - F(a)",
+    "contexto_historico": "Desenvolvido independentemente por Newton e Leibniz no século XVII.",
+    "estrategia_principal": "Análise de taxas de variação e acumulação",
+    "padrao_raciocinio": "Do local (derivada) para o global (integral)",
+    "aplicacao_curso": "Cálculo de áreas sob curvas de tensão-deformação",
+    "tags": {
+      "aplicacao": [
+        "área",
+        "volume",
+        "trabalho",
+        "energia"
+      ],
+      "tecnica": [
+        "integração",
+        "primitiva",
+        "substituição"
+      ],
+      "conceito": [
+        "continuidade",
+        "limite",
+        "acumulação"
+      ],
+      "estrategia": [
+        "do_particular_ao_global",
+        "conversao"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular ∫₀² (3x² + 2x) dx"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Determinar área sob curva de carga distribuída w(x) = 2x + 5"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em cálculo de momento fletor variável M(x) = ∫V(x)dx"
+      }
+    ],
+    "leituras": [
+      "Polya cap. 3",
+      "Stewart Cálculo Vol. 1",
+      "Thomas Cálculo"
+    ]
+  },
+  "EC-02": {
+    "nome": "Teorema de Green",
+    "curso": "Engenharia Civil",
+    "disciplinas": [
+      "Cálculo Vetorial",
+      "Mecânica dos Fluidos"
+    ],
+    "formulação": "∮_C (Ldx + Mdy) = ∬_D (∂M/∂x - ∂L/∂y) dA",
+    "contexto_historico": "George Green publicou em 1828, relacionando integrais de linha e de superfície no plano.",
+    "estrategia_principal": "Conversão entre integral de linha e dupla",
+    "padrao_raciocinio": "Fronteira ↔ Interior",
+    "aplicacao_curso": "Cálculo de fluxo de fluidos através de superfícies e trabalho de campos vetoriais",
+    "tags": {
+      "aplicacao": [
+        "fluxo",
+        "circulacao",
+        "trabalho",
+        "campo"
+      ],
+      "tecnica": [
+        "integral_linha",
+        "integral_dupla",
+        "derivada_parcial"
+      ],
+      "conceito": [
+        "campo_vetorial",
+        "curva_fechada",
+        "regiao_plana"
+      ],
+      "estrategia": [
+        "conversao_dimensao",
+        "fronteira_interior"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Aplicar Green para calcular área de região delimitada por curva"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Calcular circulação de campo F = (-y, x) ao redor de círculo unitário"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em cálculo de vazão através de seção transversal de canal"
+      }
+    ],
+    "leituras": [
+      "Stewart Cálculo Vetorial",
+      "Marsden Vector Calculus",
+      "Polya cap. 5"
+    ]
+  },
+  "EC-03": {
+    "nome": "Teorema de Stokes",
+    "curso": "Engenharia Civil",
+    "disciplinas": [
+      "Cálculo Vetorial",
+      "Eletromagnetismo Aplicado"
+    ],
+    "formulação": "∮_C F·dr = ∬_S (∇×F)·n dS",
+    "contexto_historico": "Generalização do Teorema de Green para superfícies no espaço tridimensional, formulado no século XIX.",
+    "estrategia_principal": "Relacionar circulaçãode linha com rotacional de superfície",
+    "padrao_raciocinio": "Curva ↔ Superfície",
+    "aplicacao_curso": "Análise de campos vetoriais em estruturas espaciais e cálculo de torques",
+    "tags": {
+      "aplicacao": [
+        "rotacional",
+        "circulacao",
+        "fluxo",
+        "torque"
+      ],
+      "tecnica": [
+        "integral_superficie",
+        "rotacional",
+        "vetor_normal"
+      ],
+      "conceito": [
+        "campo_vetorial_3d",
+        "superficie_orientavel",
+        "curva_fronteira"
+      ],
+      "estrategia": [
+        "generalizacao",
+        "reducao_dimensao"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Verificar Stokes para campo F = (y, -x, z) em hemisfério"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Calcular trabalho de campo vetorial ao longo de curva espacial"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em análise de campo magnético ao redor de condutor"
+      }
+    ],
+    "leituras": [
+      "Stewart Cálculo Vetorial",
+      "Feynman Vol. 2",
+      "Griffiths Eletrodinâmica"
+    ]
+  },
+  "EC-04": {
+    "nome": "Teorema de Castigliano",
+    "curso": "Engenharia Civil",
+    "disciplinas": [
+      "Resistência dos Materiais",
+      "Análise Estrutural"
+    ],
+    "formulação": "δ = ∂U/∂F, onde U é energia de deformação e F é força aplicada",
+    "contexto_historico": "Alberto Castigliano formulou em 1873, revolucionando cálculo de deslocamentos em estruturas hiperestáticas.",
+    "estrategia_principal": "Energia de deformação como ferramenta de cálculo",
+    "padrao_raciocinio": "Construtivo - da energia para o deslocamento",
+    "aplicacao_curso": "Cálculo de flechas em vigas contínuas e treliças hiperestáticas",
+    "tags": {
+      "aplicacao": [
+        "deslocamento",
+        "flecha",
+        "deformacao",
+        "hiperestatico"
+      ],
+      "tecnica": [
+        "energia_elastica",
+        "derivada_parcial",
+        "princípio_trabalho_virtual"
+      ],
+      "conceito": [
+        "energia_deformacao",
+        "linearidade",
+        "superposicao"
+      ],
+      "estrategia": [
+        "energia_trabalho",
+        "metodo_indireto"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular deslocamento em viga simplesmente apoiada com carga pontual"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Determinar reação em apoio intermediário de viga contínua"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em estrutura espacial tridimensional com múltiplos graus de liberdade"
+      }
+    ],
+    "leituras": [
+      "Beer & Johnston Resistência",
+      "Timoshenko Teoria das Estruturas",
+      "Polya cap. 5"
+    ]
+  },
+  "EC-05": {
+    "nome": "Princípio de Saint-Venant",
+    "curso": "Engenharia Civil",
+    "disciplinas": [
+      "Resistência dos Materiais",
+      "Teoria da Elasticidade"
+    ],
+    "formulação": "Efeitos locais de carregamento desaparecem a distância suficiente da aplicação",
+    "contexto_historico": "Adhémar Barré de Saint-Venant estabeleceu em 1855, fundamental para simplificação de problemas de elasticidade.",
+    "estrategia_principal": "Simplificação por afastamento da região de aplicação",
+    "padrao_raciocinio": "Local ↔ Global",
+    "aplicacao_curso": "Justificativa para simplificação de condições de contorno em análise estrutural",
+    "tags": {
+      "aplicacao": [
+        "condicao_contorno",
+        "simplificacao",
+        "tensao_local"
+      ],
+      "tecnica": [
+        "aproximacao",
+        "analise_asintotica",
+        "decomposicao"
+      ],
+      "conceito": [
+        "campo_tensao",
+        "distancia_caracteristica",
+        "homogeneizacao"
+      ],
+      "estrategia": [
+        "simplificacao_modelo",
+        "escala_separacao"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Identificar região de aplicação do princípio em barra tracionada"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Estimar distância mínima para validade da aproximação"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em análise de concentração de tensões em entalhes"
+      }
+    ],
+    "leituras": [
+      "Timoshenko Elasticidade",
+      "Boresi Mecânica dos Sólidos",
+      "Mase Continuum Mechanics"
+    ]
+  },
+  "EC-06": {
+    "nome": "Teorema de Euler-Bernoulli",
+    "curso": "Engenharia Civil",
+    "disciplinas": [
+      "Mecânica das Estruturas",
+      "Análise de Vigas"
+    ],
+    "formulação": "EI(d⁴w/dx⁴) = q(x), onde w é deflexão, E módulo de Young, I momento de inércia",
+    "contexto_historico": "Desenvolvido por Euler e Bernoulli no século XVIII, base da teoria de vigas em engenharia.",
+    "estrategia_principal": "Modelagem de flexão através de equação diferencial de 4ª ordem",
+    "padrao_raciocinio": "Equilíbrio local → Equação global",
+    "aplicacao_curso": "Cálculo de deflexão e momentos fletores em vigas de edificações e pontes",
+    "tags": {
+      "aplicacao": [
+        "deflexao",
+        "momento_fletor",
+        "vibracao",
+        "estabilidade"
+      ],
+      "tecnica": [
+        "equacao_diferencial",
+        "condicoes_contorno",
+        "integracao"
+      ],
+      "conceito": [
+        "rigidez_flexional",
+        "curvatura",
+        "hipotese_plana"
+      ],
+      "estrategia": [
+        "modelagem_continua",
+        "equilibrio_diferencial"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Resolver equação para viga engastada com carga uniforme"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Determinar deflexão máxima e rotações em viga bi-apoiada"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Analisar vibração livre de viga com condições de contorno mistas"
+      }
+    ],
+    "leituras": [
+      "Timoshenko Vigas e Placas",
+      "Reddy Mecânica das Estruturas",
+      "Hibbeler Resistência"
+    ]
+  },
+  "EC-07": {
+    "nome": "Teorema de Dirichlet",
+    "curso": "Engenharia Civil",
+    "disciplinas": [
+      "Equações Diferenciais",
+      "Métodos Numéricos"
+    ],
+    "formulação": "Condições de contorno de Dirichlet garantem unicidade da solução em problemas elípticos",
+    "contexto_historico": "Johann Peter Gustav Lejeune Dirichlet contribuiu para teoria de equações diferenciais parciais no século XIX.",
+    "estrategia_principal": "Condições de contorno para garantir existência e unicidade",
+    "padrao_raciocinio": "Contorno → Interior",
+    "aplicacao_curso": "Formulação correta de problemas de valor de contorno em transferência de calor e elasticidade",
+    "tags": {
+      "aplicacao": [
+        "condicao_contorno",
+        "unicidade",
+        "existencia"
+      ],
+      "tecnica": [
+        "edp",
+        "metodo_finite_element",
+        "discretizacao"
+      ],
+      "conceito": [
+        "problema_elliptico",
+        "valor_contorno",
+        "bem_posto"
+      ],
+      "estrategia": [
+        "condicionamento",
+        "regularizacao"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Estabelecer condições de Dirichlet para problema de condução de calor"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Verificar unicidade de solução em domínio retangular"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Implementar em método de elementos finitos para problema elástico"
+      }
+    ],
+    "leituras": [
+      "Strauss EDP",
+      "Boyce Equações Diferenciais",
+      "Zienkiewicz Elementos Finitos"
+    ]
+  },
+  "EC-08": {
+    "nome": "Teorema de Fourier (Séries)",
+    "curso": "Engenharia Civil",
+    "disciplinas": [
+      "Análise de Sinais",
+      "Vibrações Estruturais"
+    ],
+    "formulação": "Função periódica pode ser representada como soma de senos e cossenos: f(x) = Σ(aₙcos(nx) + bₙsin(nx))",
+    "contexto_historico": "Joseph Fourier apresentou em 1822, fundamental para análise de sinais e sistemas lineares.",
+    "estrategia_principal": "Decomposição em componentes harmônicos",
+    "padrao_raciocinio": "Temporal → Frequencial",
+    "aplicacao_curso": "Análise de cargas dinâmicas e resposta estrutural a excitações periódicas",
+    "tags": {
+      "aplicacao": [
+        "vibracao",
+        "carga_dinamica",
+        "resposta_freq",
+        "analise_espectral"
+      ],
+      "tecnica": [
+        "serie_fourier",
+        "coeficientes",
+        "ortogonalidade"
+      ],
+      "conceito": [
+        "periodicidade",
+        "harmonico",
+        "frequencia"
+      ],
+      "estrategia": [
+        "decomposicao",
+        "transformacao_domínio"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular coeficientes de Fourier de onda quadrada"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Analisar resposta de estrutura a carga periódica"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar FFT em registro sísmico para análise modal"
+      }
+    ],
+    "leituras": [
+      "Bracewell Transformada Fourier",
+      "Oppenheim Sinais e Sistemas",
+      "Thomson Vibrações"
+    ]
+  },
+  "EC-09": {
+    "nome": "Teorema de Superposição",
+    "curso": "Engenharia Civil",
+    "disciplinas": [
+      "Circuitos Elétricos",
+      "Análise Estrutural Linear"
+    ],
+    "formulação": "Em sistema linear, resposta a múltiplas entradas é soma das respostas individuais",
+    "contexto_historico": "Princípio fundamental da linearidade, aplicado desde o século XVIII em física e engenharia.",
+    "estrategia_principal": "Decompor problema complexo em problemas simples",
+    "padrao_raciocinio": "Todo → Partes → Todo",
+    "aplicacao_curso": "Análise de estruturas sujeitas a múltiplas combinações de carga",
+    "tags": {
+      "aplicacao": [
+        "combinação_cargas",
+        "analise_linear",
+        "resposta_total"
+      ],
+      "tecnica": [
+        "soma_respostas",
+        "analise_independente",
+        "recombinacao"
+      ],
+      "conceito": [
+        "linearidade",
+        "homogeneidade",
+        "aditividade"
+      ],
+      "estrategia": [
+        "divisao_problema",
+        "recomposicao"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular reação em apoio devido a duas cargas independentes"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Aplicar superposição em viga com carga distribuída e pontual"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Analisar estrutura hiperestática com múltiplos carregamentos simultâneos"
+      }
+    ],
+    "leituras": [
+      "Beer & Johnston",
+      "Hibbeler Análise Estrutural",
+      "Polya cap. 4"
+    ]
+  },
+  "EC-10": {
+    "nome": "Teorema de Pitágoras Generalizado",
+    "curso": "Engenharia Civil",
+    "disciplinas": [
+      "Geometria Analítica",
+      "Álgebra Linear"
+    ],
+    "formulação": "Em espaço de produto interno: ||u+v||² = ||u||² + ||v||² + 2⟨u,v⟩",
+    "contexto_historico": "Generalização do teorema clássico para espaços vetoriais abstratos, fundamental em análise funcional.",
+    "estrategia_principal": "Relação entre norma e produto interno",
+    "padrao_raciocinio": "Geométrico → Algébrico",
+    "aplicacao_curso": "Cálculo de distâncias e ângulos em espaços de configuração estrutural",
+    "tags": {
+      "aplicacao": [
+        "distancia",
+        "angulo",
+        "projeção",
+        "ortogonalidade"
+      ],
+      "tecnica": [
+        "produto_interno",
+        "norma",
+        "base_ortonormal"
+      ],
+      "conceito": [
+        "espaco_vetorial",
+        "ortogonalidade",
+        "projeção"
+      ],
+      "estrategia": [
+        "geometria_algebra",
+        "representacao_analitica"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular distância entre dois pontos no espaço 3D"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Determinar projeção ortogonal de vetor em subespaço"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em análise de modos normais de vibração"
+      }
+    ],
+    "leituras": [
+      "Lay Álgebra Linear",
+      "Strang Álgebra Linear",
+      "Anton Elementos"
+    ]
+  },
+  "EC-11": {
+    "nome": "Teorema de Rolle",
+    "curso": "Engenharia Civil",
+    "disciplinas": [
+      "Cálculo Diferencial",
+      "Análise Matemática"
+    ],
+    "formulação": "Se f é contínua em [a,b], diferenciável em (a,b) e f(a)=f(b), então ∃c∈(a,b) tal que f'(c)=0",
+    "contexto_historico": "Michel Rolle formulou em 1691, caso especial do Teorema do Valor Médio.",
+    "estrategia_principal": "Existência de ponto crítico em intervalo",
+    "padrao_raciocinio": "Global → Local",
+    "aplicacao_curso": "Identificação de pontos de máximo/mínimo em funções de desempenho estrutural",
+    "tags": {
+      "aplicacao": [
+        "extremo",
+        "ponto_critico",
+        "otimizacao"
+      ],
+      "tecnica": [
+        "derivada",
+        "continuidade",
+        "diferenciabilidade"
+      ],
+      "conceito": [
+        "extremo_local",
+        "tangente_horizontal",
+        "valor_estacionario"
+      ],
+      "estrategia": [
+        "existencia",
+        "ponto_intermediario"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Verificar hipóteses de Rolle para polinômio dado"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Encontrar ponto c onde derivada se anula"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em prova de unicidade de solução de equação"
+      }
+    ],
+    "leituras": [
+      "Stewart Cálculo",
+      "Apostol Análise",
+      "Polya cap. 2"
+    ]
+  },
+  "EC-12": {
+    "nome": "Teorema do Valor Médio",
+    "curso": "Engenharia Civil",
+    "disciplinas": [
+      "Cálculo Diferencial",
+      "Análise Numérica"
+    ],
+    "formulação": "∃c∈(a,b) tal que f'(c) = [f(b)-f(a)]/(b-a)",
+    "contexto_historico": "Generalização do Teorema de Rolle, fundamental para estimativas de erro em métodos numéricos.",
+    "estrategia_principal": "Relacionar taxa média com taxa instantânea",
+    "padrao_raciocinio": "Médio → Instantâneo",
+    "aplicacao_curso": "Estimativa de variações de grandezas físicas em intervalos discretos",
+    "tags": {
+      "aplicacao": [
+        "taxa_variacao",
+        "estimativa",
+        "erro_numerico"
+      ],
+      "tecnica": [
+        "derivada",
+        "razao_incremental",
+        "linearizacao"
+      ],
+      "conceito": [
+        "taxa_media",
+        "taxa_instantanea",
+        "tangente"
+      ],
+      "estrategia": [
+        "aproximacao_linear",
+        "estimativa_limites"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Aplicar TVM para estimar variação de função dada"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Probar desigualdade usando TVM"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Estimar erro de discretização em método numérico"
+      }
+    ],
+    "leituras": [
+      "Stewart Cálculo",
+      "Burden Métodos Numéricos",
+      "Rudin Análise"
+    ]
+  },
+  "EE-01": {
+    "nome": "Teorema de Thevenin",
+    "curso": "Engenharia Elétrica",
+    "disciplinas": [
+      "Circuitos Elétricos I",
+      "Análise de Circuitos"
+    ],
+    "formulação": "Qualquer rede linear pode ser substituída por fonte de tensão Vth em série com resistência Rth",
+    "contexto_historico": "Léon Charles Thévenin publicou em 1883, simplificando análise de circuitos complexos.",
+    "estrategia_principal": "Equivalência de redes - simplificação por redução",
+    "padrao_raciocinio": "Do complexo para o simples (abstração)",
+    "aplicacao_curso": "Análise de carga máxima em sistemas de potência e eletrônica de potência",
+    "tags": {
+      "aplicacao": [
+        "equivalente",
+        "carga_maxima",
+        "transferencia_potencia"
+      ],
+      "tecnica": [
+        "fonte_transformada",
+        "resistencia_equivalente",
+        "circuito_aberto"
+      ],
+      "conceito": [
+        "linearidade",
+        "equivalencia",
+        "portas"
+      ],
+      "estrategia": [
+        "simplificacao",
+        "modelo_reduzido"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Obter equivalente Thevenin de circuito com 3 resistores"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Determinar Vth e Rth em circuito com fonte dependente"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em circuito AC com impedâncias complexas"
+      }
+    ],
+    "leituras": [
+      "Alexander Sadiku Circuitos",
+      "Nilsson Riedel Circuitos",
+      "Polya cap. 4"
+    ]
+  },
+  "EE-02": {
+    "nome": "Teorema de Norton",
+    "curso": "Engenharia Elétrica",
+    "disciplinas": [
+      "Circuitos Elétricos I",
+      "Análise de Circuitos"
+    ],
+    "formulação": "Qualquer rede linear pode ser substituída por fonte de corrente In em paralelo com resistência Rn",
+    "contexto_historico": "Eduard L. Norton formulou em 1926, dual do teorema de Thevenin.",
+    "estrategia_principal": "Equivalência por fonte de corrente",
+    "padrao_raciocinio": "Dualidade Thevenin-Norton",
+    "aplicacao_curso": "Análise de circuitos com múltiplas fontes de corrente e conversão de modelos",
+    "tags": {
+      "aplicacao": [
+        "equivalente_corrente",
+        "circuito_paralelo",
+        "conversao"
+      ],
+      "tecnica": [
+        "curto_circuito",
+        "resistencia_norton",
+        "transformacao_fonte"
+      ],
+      "conceito": [
+        "dualidade",
+        "equivalencia",
+        "fonte_ideal"
+      ],
+      "estrategia": [
+        "transformacao_modelo",
+        "simplificacao"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Obter equivalente Norton de circuito resistivo simples"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Converter entre Thevenin e Norton"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em análise de circuito com fontes dependentes"
+      }
+    ],
+    "leituras": [
+      "Alexander Sadiku Circuitos",
+      "Hayt Circuitos",
+      "Boylestad Circuitos"
+    ]
+  },
+  "EE-03": {
+    "nome": "Teorema de Fourier (Análise de Sinais)",
+    "curso": "Engenharia Elétrica",
+    "disciplinas": [
+      "Processamento de Sinais",
+      "Análise de Sistemas"
+    ],
+    "formulação": "Sinal pode ser representado como soma de exponenciais complexas: x(t) = ΣX(k)e^(jωkt)",
+    "contexto_historico": "Joseph Fourier, 1822. Fundamental para telecomunicações e processamento de sinais.",
+    "estrategia_principal": "Transformação de domínio (tempo → frequência)",
+    "padrao_raciocinio": "Temporal → Espectral",
+    "aplicacao_curso": "Análise de harmônicos em sistemas de potência e filtragem de sinais",
+    "tags": {
+      "aplicacao": [
+        "analise_espectral",
+        "filtragem",
+        "modulacao",
+        "harmônicos"
+      ],
+      "tecnica": [
+        "serie_fourier",
+        "transformada_fourier",
+        "fft"
+      ],
+      "conceito": [
+        "frequencia",
+        "espectro",
+        "dominio_freq"
+      ],
+      "estrategia": [
+        "transformacao_domínio",
+        "decomposicao_harmonica"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular coeficientes de Fourier de onda quadrada"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Analisar espectro de sinal modulante AM"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar FFT em sinal de comunicação digital para demodulação"
+      }
+    ],
+    "leituras": [
+      "Oppenheim Sinais e Sistemas",
+      "Bracewell Transformada Fourier",
+      "Proakis Processamento Digital"
+    ]
+  },
+  "EE-04": {
+    "nome": "Teorema de Parseval",
+    "curso": "Engenharia Elétrica",
+    "disciplinas": [
+      "Processamento de Sinais",
+      "Teoria da Informação"
+    ],
+    "formulação": "∫|x(t)|²dt = Σ|X(k)|²",
+    "contexto_historico": "Marc-Antoine Parseval, final do século XVIII.",
+    "estrategia_principal": "Conservação de energia entre domínios",
+    "padrao_raciocinio": "Tempo ↔ Frequência (conservação)",
+    "aplicacao_curso": "Cálculo de potência de sinais e verificação de transformadas",
+    "tags": {
+      "aplicacao": [
+        "energia_sinal",
+        "potencia",
+        "verificacao_transformada"
+      ],
+      "tecnica": [
+        "integral_quadrado",
+        "soma_coeficientes",
+        "norma_L2"
+      ],
+      "conceito": [
+        "conservacao_energia",
+        "ortogonalidade",
+        "completeness"
+      ],
+      "estrategia": [
+        "contabilizacao_energia",
+        "verificacao_cruzada"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Verificar Parseval para senoide pura"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Calcular potência de sinal periódico via coeficientes Fourier"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em análise de ruído em sistema de comunicação"
+      }
+    ],
+    "leituras": [
+      "Oppenheim Sinais e Sistemas",
+      "Bracewell Transformada Fourier",
+      "Papoulis Probability"
+    ]
+  },
+  "EE-05": {
+    "nome": "Teorema de Nyquist-Shannon",
+    "curso": "Engenharia Elétrica",
+    "disciplinas": [
+      "Comunicações",
+      "Processamento Digital de Sinais"
+    ],
+    "formulação": "fs ≥ 2fmax para reconstrução perfeita de sinal",
+    "contexto_historico": "Harry Nyquist (1928) e Claude Shannon (1949).",
+    "estrategia_principal": "Relação entre taxa de amostragem e largura de banda",
+    "padrao_raciocinio": "Contínuo ↔ Discreto",
+    "aplicacao_curso": "Projeto de sistemas de aquisição e conversão A/D",
+    "tags": {
+      "aplicacao": [
+        "amostragem",
+        "conversao_A_D",
+        "aliasing",
+        "reconstrucao"
+      ],
+      "tecnica": [
+        "taxa_amostragem",
+        "filtro_antialiasing",
+        "interpolacao"
+      ],
+      "conceito": [
+        "largura_banda",
+        "frequencia_nyquist",
+        "reconstrucao_perfeita"
+      ],
+      "estrategia": [
+        "discretizacao",
+        "preservacao_informacao"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Determinar taxa mínima de amostragem para sinal de 1kHz"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Analisar efeito de aliasing em sinal subamostrado"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Projetar filtro anti-aliasing para sistema de aquisição"
+      }
+    ],
+    "leituras": [
+      "Shannon Communications Theory",
+      "Oppenheim Sinais e Sistemas",
+      "Proakis Digital Communications"
+    ]
+  },
+  "EE-06": {
+    "nome": "Teorema dos Resíduos",
+    "curso": "Engenharia Elétrica",
+    "disciplinas": [
+      "Análise Complexa",
+      "Transformadas"
+    ],
+    "formulação": "∮_C f(z)dz = 2πi ΣRes(f,zk)",
+    "contexto_historico": "Augustin-Louis Cauchy, século XIX.",
+    "estrategia_principal": "Cálculo de integrais via resíduos em polos",
+    "padrao_raciocinio": "Integral de contorno → Soma discreta",
+    "aplicacao_curso": "Cálculo de integrais impróprias e inversão de transformadas",
+    "tags": {
+      "aplicacao": [
+        "integral_impropria",
+        "inversao_laplace",
+        "inversao_fourier"
+      ],
+      "tecnica": [
+        "residuo",
+        "polo",
+        "expansao_laurent"
+      ],
+      "conceito": [
+        "funcao_analitica",
+        "singularidade",
+        "contorno_fechado"
+      ],
+      "estrategia": [
+        "reducao_complexa",
+        "soma_discreta"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular resíduo em polo simples"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Usar resíduos para calcular integral real imprópria"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em inversão de transformada de Laplace"
+      }
+    ],
+    "leituras": [
+      "Churchill Complex Variables",
+      "Brown Churchill",
+      "Saff Snider"
+    ]
+  },
+  "EE-07": {
+    "nome": "Teorema de Cauchy",
+    "curso": "Engenharia Elétrica",
+    "disciplinas": [
+      "Análise Complexa",
+      "Transformadas"
+    ],
+    "formulação": "Se f é analítica em região simplesmente conexa, ∮_C f(z)dz = 0",
+    "contexto_historico": "Augustin-Louis Cauchy, século XIX. Fundamento da análise complexa.",
+    "estrategia_principal": "Propriedade de integrais de funções analíticas",
+    "padrao_raciocinio": "Analiticidade → Integral nula",
+    "aplicacao_curso": "Verificação de propriedades de funções em domínio complexo",
+    "tags": {
+      "aplicacao": [
+        "analise_complexa",
+        "integrais_contorno",
+        "funcoes_analiticas"
+      ],
+      "tecnica": [
+        "teorema_cauchy",
+        "derivada_complexa",
+        "contorno_fechado"
+      ],
+      "conceito": [
+        "analiticidade",
+        "holomorfia",
+        "simplesmente_conexo"
+      ],
+      "estrategia": [
+        "propriedade_global",
+        "invariante_contorno"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Verificar se f(z) = z² é analítica e aplicar Cauchy"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Calcular integral de função racional em contorno fechado"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em prova de propriedades de transformada Z"
+      }
+    ],
+    "leituras": [
+      "Churchill Complex Variables",
+      "Brown Churchill",
+      "Ahlfors Complex Analysis"
+    ]
+  },
+  "EE-08": {
+    "nome": "Teorema de Laplace",
+    "curso": "Engenharia Elétrica",
+    "disciplinas": [
+      "Equações Diferenciais",
+      "Sistemas Lineares"
+    ],
+    "formulação": "L{f'(t)} = sF(s) - f(0), L{f''(t)} = s²F(s) - sf(0) - f'(0)",
+    "contexto_historico": "Pierre-Simon Laplace, século XVIII-XIX. Transformada fundamental para sistemas.",
+    "estrategia_principal": "Transformar EDO em equação algébrica",
+    "padrao_raciocinio": "Domínio tempo → Domínio frequência complexa",
+    "aplicacao_curso": "Análise de resposta de sistemas lineares invariantes no tempo",
+    "tags": {
+      "aplicacao": [
+        "sistemas_lineares",
+        "resposta_temporal",
+        "estabilidade"
+      ],
+      "tecnica": [
+        "transformada_laplace",
+        "inversa_laplace",
+        "fracoes_parciais"
+      ],
+      "conceito": [
+        "funcao_transmissao",
+        "polos_zeros",
+        "regiao_convergencia"
+      ],
+      "estrategia": [
+        "transformacao_domínio",
+        "simplificacao_algebraica"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular transformada de Laplace de e^(-at)"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Resolver EDO de 2ª ordem usando Laplace"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Analisar estabilidade de sistema de controle via polos"
+      }
+    ],
+    "leituras": [
+      "Kreyszig EDP",
+      "Ogata Sistemas de Controle",
+      "Oppenheim Sinais e Sistemas"
+    ]
+  },
+  "EE-09": {
+    "nome": "Teorema de Superposição (Circuitos)",
+    "curso": "Engenharia Elétrica",
+    "disciplinas": [
+      "Circuitos Elétricos I",
+      "Análise de Circuitos"
+    ],
+    "formulação": "Em circuito linear, resposta total = soma das respostas a cada fonte individualmente",
+    "contexto_historico": "Princípio da linearidade, aplicado desde século XVIII.",
+    "estrategia_principal": "Analisar cada fonte separadamente e somar resultados",
+    "padrao_raciocinio": "Múltiplas fontes → Fontes individuais → Soma",
+    "aplicacao_curso": "Análise de circuitos com múltiplas fontes independentes",
+    "tags": {
+      "aplicacao": [
+        "analise_circuito",
+        "fontes_múltiplas",
+        "resposta_total"
+      ],
+      "tecnica": [
+        "desativar_fontes",
+        "soma_respostas",
+        "circuito_individual"
+      ],
+      "conceito": [
+        "linearidade",
+        "independencia_fontes",
+        "aditividade"
+      ],
+      "estrategia": [
+        "divisao_problema",
+        "recomposicao"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular corrente em resistor com duas fontes de tensão"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Aplicar superposição em circuito com fontes DC e AC"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Analisar circuito com fontes dependentes e independentes"
+      }
+    ],
+    "leituras": [
+      "Alexander Sadiku Circuitos",
+      "Nilsson Riedel Circuitos",
+      "Polya cap. 4"
+    ]
+  },
+  "EE-10": {
+    "nome": "Teorema de Millman",
+    "curso": "Engenharia Elétrica",
+    "disciplinas": [
+      "Circuitos Elétricos II",
+      "Análise de Redes"
+    ],
+    "formulação": "V = Σ(Vk/Gk) / Σ(Gk), onde Gk = 1/Rk",
+    "contexto_historico": "Jacob Millman, século XX. Simplificação para nós com múltiplas ramificações.",
+    "estrategia_principal": "Calcular tensão de nó diretamente",
+    "padrao_raciocinio": "Múltiplos ramos → Tensão única",
+    "aplicacao_curso": "Análise rápida de circuitos com múltiplas fontes em paralelo",
+    "tags": {
+      "aplicacao": [
+        "tensao_nó",
+        "fontes_paralelo",
+        "analise_rapida"
+      ],
+      "tecnica": [
+        "condutancia",
+        "soma_ponderada",
+        "nó_unico"
+      ],
+      "conceito": [
+        "tensao_nó",
+        "condutancia_equivalente",
+        "fontes_paralelo"
+      ],
+      "estrategia": [
+        "formula_direta",
+        "evitar_sistema_equacoes"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular tensão de nó com 3 ramos em paralelo"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Aplicar Millman em circuito com fontes de corrente e tensão"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Usar em análise de circuito trifásico desbalanceado"
+      }
+    ],
+    "leituras": [
+      "Alexander Sadiku Circuitos",
+      "Hayt Circuitos",
+      "Boylestad Circuitos"
+    ]
+  },
+  "EE-11": {
+    "nome": "Teorema de Tellegen",
+    "curso": "Engenharia Elétrica",
+    "disciplinas": [
+      "Circuitos Elétricos",
+      "Teoria de Redes"
+    ],
+    "formulação": "Σ vk·ik = 0 para qualquer rede que satisfaça KCL e KVL",
+    "contexto_historico": "Bernard D.H. Tellegen, 1952. Conservação de potência em redes.",
+    "estrategia_principal": "Conservação de energia em qualquer topologia de rede",
+    "padrao_raciocinio": "Topologia → Conservação global",
+    "aplicacao_curso": "Verificação de consistência em análises de circuitos complexos",
+    "tags": {
+      "aplicacao": [
+        "conservacao_potencia",
+        "verificacao_circuito",
+        "balanco_energetico"
+      ],
+      "tecnica": [
+        "produto_tensao_corrente",
+        "soma_global",
+        "topologia_rede"
+      ],
+      "conceito": [
+        "conservacao_energia",
+        "lei_kirchhoff",
+        "topologia_independente"
+      ],
+      "estrategia": [
+        "verificacao_global",
+        "balanco_energetico"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Verificar Tellegen em circuito simples de malha única"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Aplicar em circuito com múltiplas malhas e nós"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Usar para validar resultados de simulação SPICE"
+      }
+    ],
+    "leituras": [
+      "Tellegen Original Paper",
+      "Desoer Kuh Circuitos",
+      "Chua Desoer"
+    ]
+  },
+  "EE-12": {
+    "nome": "Teorema de Reciprocidade",
+    "curso": "Engenharia Elétrica",
+    "disciplinas": [
+      "Circuitos Elétricos",
+      "Teoria de Redes"
+    ],
+    "formulação": "Em rede linear bilateral, razão entre excitação e resposta é invariante à troca de posição",
+    "contexto_historico": "Princípio clássico de redes lineares, século XIX-XX.",
+    "estrategia_principal": "Simetria de resposta em redes lineares",
+    "padrao_raciocinio": "Posição A→B = Posição B→A",
+    "aplicacao_curso": "Simplificação de medições e validação de modelos de circuitos",
+    "tags": {
+      "aplicacao": [
+        "simetria_circuito",
+        "validacao_medicao",
+        "redes_lineares"
+      ],
+      "tecnica": [
+        "troca_fonte_resposta",
+        "matriz_impedancia",
+        "simetria"
+      ],
+      "conceito": [
+        "reciprocidade",
+        "linearidade",
+        "bilateralidade"
+      ],
+      "estrategia": [
+        "simetria_exploracao",
+        "reducao_medicoes"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Verificar reciprocidade em circuito RLC simples"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Aplicar em rede de duas portas"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Usar em caracterização de antenas e propagação"
+      }
+    ],
+    "leituras": [
+      "Desoer Kuh Circuitos",
+      "Pozar Microwave Engineering",
+      "Chua Desoer"
+    ]
+  },
+  "LF-01": {
+    "nome": "Teorema de Noether",
+    "curso": "Licenciatura em Física",
+    "disciplinas": [
+      "Física Teórica",
+      "Mecânica Lagrangiana"
+    ],
+    "formulação": "Para cada simetria contínua, existe uma lei de conservação correspondente",
+    "contexto_historico": "Emmy Noether demonstrou em 1915, um dos teoremas mais importantes da física.",
+    "estrategia_principal": "Simetrias como princípio organizador da natureza",
+    "padrao_raciocinio": "Do abstrato (simetria) para o concreto (lei de conservação)",
+    "aplicacao_curso": "Derivação de conservação de energia, momento linear e angular",
+    "tags": {
+      "aplicacao": [
+        "conservacao_energia",
+        "conservacao_momento",
+        "simetrias_fundamentais"
+      ],
+      "tecnica": [
+        "calculo_variacional",
+        "lagrangianas",
+        "grupos_lie"
+      ],
+      "conceito": [
+        "simetria_continua",
+        "lei_conservacao",
+        "invariância"
+      ],
+      "estrategia": [
+        "principio_simetria",
+        "deducao_fundamental"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Relacionar translação temporal com conservação de energia"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Derivar conservação de momento de simetria translacional"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em teoria de campos quânticos"
+      }
+    ],
+    "leituras": [
+      "Goldstein Mecânica Clássica",
+      "Noether Original Paper (1918)",
+      "Tao cap. 15"
+    ]
+  },
+  "LF-02": {
+    "nome": "Teorema de Gauss (Eletromagnetismo)",
+    "curso": "Licenciatura em Física",
+    "disciplinas": [
+      "Eletromagnetismo",
+      "Campos Eletromagnéticos"
+    ],
+    "formulação": "∮ E·dA = Q/ε₀",
+    "contexto_historico": "Carl Friedrich Gauss, século XIX. Uma das equações de Maxwell.",
+    "estrategia_principal": "Relacionar fluxo de campo com carga interna",
+    "padrao_raciocinio": "Superfície fechada → Carga interna",
+    "aplicacao_curso": "Cálculo de campos elétricos em distribuições simétricas de carga",
+    "tags": {
+      "aplicacao": [
+        "campo_eletrico",
+        "fluxo_eletrico",
+        "distribuicao_carga"
+      ],
+      "tecnica": [
+        "integral_superficie",
+        "simetria_esferica",
+        "cilindrica_plana"
+      ],
+      "conceito": [
+        "fluxo",
+        "carga_enclosed",
+        "permissividade"
+      ],
+      "estrategia": [
+        "explorar_simetria",
+        "superfície_gaussiana"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular campo de esfera carregada uniformemente"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Aplicar em fio infinito carregado"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Derivar equação de Poisson a partir de Gauss"
+      }
+    ],
+    "leituras": [
+      "Griffiths Eletrodinâmica",
+      "Jackson Eletrodinâmica",
+      "Feynman Vol. 2"
+    ]
+  },
+  "LF-03": {
+    "nome": "Teorema de Stokes (Física)",
+    "curso": "Licenciatura em Física",
+    "disciplinas": [
+      "Eletromagnetismo",
+      "Mecânica dos Fluidos"
+    ],
+    "formulação": "∮_C F·dr = ∬_S (∇×F)·n dS",
+    "contexto_historico": "Generalização para física de campos vetoriais, século XIX.",
+    "estrategia_principal": "Relacionar circulação com rotacional",
+    "padrao_raciocinio": "Curva ↔ Superfície",
+    "aplicacao_curso": "Lei de Faraday e análise de campos eletromagnéticos",
+    "tags": {
+      "aplicacao": [
+        "lei_faraday",
+        "campo_eletromagnetico",
+        "circulacao"
+      ],
+      "tecnica": [
+        "rotacional",
+        "integral_linha",
+        "integral_superficie"
+      ],
+      "conceito": [
+        "campo_vetorial",
+        "rotacional",
+        "inducao_eletrica"
+      ],
+      "estrategia": [
+        "conversao_integral",
+        "relacao_campo"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Verificar Stokes para campo uniforme"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Aplicar em lei de Faraday de indução"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Derivar equações de Maxwell em forma diferencial"
+      }
+    ],
+    "leituras": [
+      "Griffiths Eletrodinâmica",
+      "Feynman Vol. 2",
+      "Jackson Eletrodinâmica"
+    ]
+  },
+  "LF-04": {
+    "nome": "Teorema de Bernoulli",
+    "curso": "Licenciatura em Física",
+    "disciplinas": [
+      "Mecânica dos Fluidos",
+      "Hidrodinâmica"
+    ],
+    "formulação": "P + ½ρv² + ρgh = constante ao longo de linha de corrente",
+    "contexto_historico": "Daniel Bernoulli, 1738. Conservação de energia em fluidos.",
+    "estrategia_principal": "Conservação de energia mecânica em escoamento",
+    "padrao_raciocinio": "Pressão ↔ Velocidade ↔ Altura",
+    "aplicacao_curso": "Análise de escoamento em tubulações e aerodinâmica",
+    "tags": {
+      "aplicacao": [
+        "escoamento_fluido",
+        "aerodinamica",
+        "tubulacao"
+      ],
+      "tecnica": [
+        "conservacao_energia",
+        "linha_corrente",
+        "fluido_ideal"
+      ],
+      "conceito": [
+        "pressao_estatica",
+        "pressao_dinamica",
+        "altura_geopotencial"
+      ],
+      "estrategia": [
+        "balanco_energia",
+        "linhas_corrente"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular velocidade de saída de tanque por orifício"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Aplicar em tubo de Venturi"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Analisar sustentação de perfil aerodinâmico"
+      }
+    ],
+    "leituras": [
+      "Fox Mecânica dos Fluidos",
+      "White Fluid Mechanics",
+      "Batchelor Fluid Dynamics"
+    ]
+  },
+  "LF-05": {
+    "nome": "Teorema de Equipartição",
+    "curso": "Licenciatura em Física",
+    "disciplinas": [
+      "Termodinâmica",
+      "Mecânica Estatística"
+    ],
+    "formulação": "Energia média por grau de liberdade = ½kT",
+    "contexto_historico": "Desenvolvido no século XIX, fundamento da teoria cinética.",
+    "estrategia_principal": "Distribuição de energia entre graus de liberdade",
+    "padrao_raciocinio": "Microscópico → Macroscópico",
+    "aplicacao_curso": "Cálculo de calores específicos de gases ideais",
+    "tags": {
+      "aplicacao": [
+        "calor_especifico",
+        "gases_ideais",
+        "energia_interna"
+      ],
+      "tecnica": [
+        "media_ensemble",
+        "graus_liberdade",
+        "distribuicao_boltzmann"
+      ],
+      "conceito": [
+        "temperatura",
+        "energia_termica",
+        "equiparticao"
+      ],
+      "estrategia": [
+        "contagem_graus",
+        "distribuicao_energia"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular energia interna de gás monoatômico"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Determinar calor específico de gás diatômico"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Discutir falhas da equipartição em baixas temperaturas"
+      }
+    ],
+    "leituras": [
+      "Reif Fundamentals of Statistical Physics",
+      "Pathria Statistical Mechanics",
+      "Blundell Thermal Physics"
+    ]
+  },
+  "LF-06": {
+    "nome": "Teorema do Virial",
+    "curso": "Licenciatura em Física",
+    "disciplinas": [
+      "Mecânica Estatística",
+      "Astrofísica"
+    ],
+    "formulação": "2⟨T⟩ + ⟨Σrᵢ·Fᵢ⟩ = 0 para sistema em equilíbrio",
+    "contexto_historico": "Rudolf Clausius, 1870. Relação entre energia cinética e potencial.",
+    "estrategia_principal": "Relacionar energias cinética e potencial em sistemas ligados",
+    "padrao_raciocinio": "Cinemático ↔ Dinâmico",
+    "aplicacao_curso": "Análise de estabilidade de sistemas estelares e moleculares",
+    "tags": {
+      "aplicacao": [
+        "estabilidade_sistema",
+        "energia_potencial",
+        "sistemas_ligados"
+      ],
+      "tecnica": [
+        "media_temporal",
+        "energia_cinetica",
+        "forca_central"
+      ],
+      "conceito": [
+        "virial",
+        "equilibrio_estatico",
+        "sistema_isolado"
+      ],
+      "estrategia": [
+        "balanco_energetico",
+        "media_temporal"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Aplicar a oscilador harmônico"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Calcular energia de sistema gravitacional"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Usar em estimativa de massa de aglomerado galáctico"
+      }
+    ],
+    "leituras": [
+      "Binney Galactic Dynamics",
+      "Clausius Original",
+      "Landau Mecânica"
+    ]
+  },
+  "LF-07": {
+    "nome": "Teorema de Banach-Tarski",
+    "curso": "Licenciatura em Física",
+    "disciplinas": [
+      "Fundamentos da Matemática",
+      "Teoria da Medida"
+    ],
+    "formulação": "Esfera pode ser decomposta e remontada em duas esferas do mesmo tamanho",
+    "contexto_historico": "Banach e Tarski, 1924. Paradoxo da teoria da medida.",
+    "estrategia_principal": "Explorar não-medibilidade de conjuntos",
+    "padrao_raciocinio": "Abstrato (axiomático) → Contra-intuitivo",
+    "aplicacao_curso": "Discussão sobre fundamentos e limites da teoria da medida",
+    "tags": {
+      "aplicacao": [
+        "paradoxo",
+        "teoria_medida",
+        "fundamentos_matematica"
+      ],
+      "tecnica": [
+        "axioma_escolha",
+        "conjunto_nao_medivel",
+        "grupo_rotacao"
+      ],
+      "conceito": [
+        "medida_lebesgue",
+        "paradoxo",
+        "infinito"
+      ],
+      "estrategia": [
+        "explorar_axiomas",
+        "questionar_intuicao"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Explicar por que o paradoxo não viola conservação de volume"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Discutir papel do axioma da escolha"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Relacionar com questões de fundamentos em física quântica"
+      }
+    ],
+    "leituras": [
+      "Wagon Banach-Tarski Paradox",
+      "Halmos Measure Theory",
+      "Tao cap. 15"
+    ]
+  },
+  "LF-08": {
+    "nome": "Teorema de Gödel (Incompletude)",
+    "curso": "Licenciatura em Física",
+    "disciplinas": [
+      "Lógica Matemática",
+      "Fundamentos"
+    ],
+    "formulação": "Em sistema formal consistente, existem afirmações verdadeiras não demonstráveis",
+    "contexto_historico": "Kurt Gödel, 1931. Revolucionou fundamentos da matemática.",
+    "estrategia_principal": "Auto-referência e limitação de sistemas formais",
+    "padrao_raciocinio": "Meta-matemático",
+    "aplicacao_curso": "Discussão sobre limites do conhecimento formal e científico",
+    "tags": {
+      "aplicacao": [
+        "limites_formais",
+        "incompletude",
+        "fundamentos"
+      ],
+      "tecnica": [
+        "auto_referencia",
+        "codificacao_godel",
+        "consistencia"
+      ],
+      "conceito": [
+        "sistema_formal",
+        "verdadeira_vs_demonstravel",
+        "indecidibilidade"
+      ],
+      "estrategia": [
+        "meta_analise",
+        "limitacao_sistema"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Explicar diferença entre verdade e demonstrabilidade"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Discutir implicações para física teórica"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Relacionar com questões de computabilidade e física"
+      }
+    ],
+    "leituras": [
+      "Gödel Original Paper",
+      "Hofstadter Gödel Escher Bach",
+      "Tao cap. 15"
+    ]
+  },
+  "LF-09": {
+    "nome": "Teorema de Bell",
+    "curso": "Licenciatura em Física",
+    "disciplinas": [
+      "Mecânica Quântica",
+      "Fundamentos"
+    ],
+    "formulação": "Desigualdades de Bell violadas por mecânica quântica, excluindo variáveis ocultas locais",
+    "contexto_historico": "John Bell, 1964. Teste experimental entre QM e teorias locais.",
+    "estrategia_principal": "Teste experimental de não-localidade quântica",
+    "padrao_raciocinio": "Localidade ↔ Correlação quântica",
+    "aplicacao_curso": "Discussão sobre interpretação da mecânica quântica",
+    "tags": {
+      "aplicacao": [
+        "mecanica_quantica",
+        "entrelacamento",
+        "variaveis_ocultas"
+      ],
+      "tecnica": [
+        "desigualdade_bell",
+        "correlacao",
+        "experimento"
+      ],
+      "conceito": [
+        "localidade",
+        "realismo",
+        "não_localidade"
+      ],
+      "estrategia": [
+        "teste_experimental",
+        "exclusao_alternativas"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Explicar significado físico das desigualdades de Bell"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Calcular correlação para estados emaranhados"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Discutir experimentos de Aspect e implicações filosóficas"
+      }
+    ],
+    "leituras": [
+      "Bell Original Paper",
+      "Aspect Experiments",
+      "Griffiths Mecânica Quântica"
+    ]
+  },
+  "LF-10": {
+    "nome": "Teorema de Ehrenfest",
+    "curso": "Licenciatura em Física",
+    "disciplinas": [
+      "Mecânica Quântica",
+      "Correspondência"
+    ],
+    "formulação": "d⟨p⟩/dt = -⟨∇V⟩, d⟨x⟩/dt = ⟨p⟩/m",
+    "contexto_historico": "Paul Ehrenfest, 1927. Ponte entre QM e mecânica clássica.",
+    "estrategia_principal": "Mostrar que valores médios seguem leis clássicas",
+    "padrao_raciocinio": "Quântico → Clássico (média)",
+    "aplicacao_curso": "Princípio da correspondência e limite clássico",
+    "tags": {
+      "aplicacao": [
+        "correspondencia_classica",
+        "valores_medios",
+        "limite_classico"
+      ],
+      "tecnica": [
+        "operadores",
+        "valores_esperados",
+        "comutadores"
+      ],
+      "conceito": [
+        "principe_correspondencia",
+        "transicao_classica",
+        "media_quantica"
+      ],
+      "estrategia": [
+        "ponte_quanticoclassico",
+        "limites_aproximacao"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Derivar teorema para partícula livre"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Aplicar a oscilador harmônico quântico"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Discutir limites de validade do teorema"
+      }
+    ],
+    "leituras": [
+      "Griffiths Mecânica Quântica",
+      "Sakurai Modern QM",
+      "Shankar Principles"
+    ]
+  },
+  "LF-11": {
+    "nome": "Teorema de Liouville",
+    "curso": "Licenciatura em Física",
+    "disciplinas": [
+      "Mecânica Hamiltoniana",
+      "Mecânica Estatística"
+    ],
+    "formulação": "Densidade de fase é constante ao longo de trajetórias",
+    "contexto_historico": "Joseph Liouville, século XIX. Conservação de volume no espaço de fase.",
+    "estrategia_principal": "Conservação de densidade probabilística no espaço de fase",
+    "padrao_raciocinio": "Dinâmica → Conservação estatística",
+    "aplicacao_curso": "Fundamentação da mecânica estatística de equilíbrio",
+    "tags": {
+      "aplicacao": [
+        "espaco_fase",
+        "densidade_probabilidade",
+        "evolucao_temporal"
+      ],
+      "tecnica": [
+        "equacao_liouville",
+        "parabolas_canonicas",
+        "divergencia_zero"
+      ],
+      "conceito": [
+        "volume_fase",
+        "conservacao",
+        "ensemble"
+      ],
+      "estrategia": [
+        "conservacao_densidade",
+        "dinamica_estatistica"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Derivar equação de Liouville para sistema simples"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Aplicar a ensemble microcanônico"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Discutir implicações para irreversibilidade termodinâmica"
+      }
+    ],
+    "leituras": [
+      "Landau Mecânica",
+      "Goldstein Mecânica Clássica",
+      "Reif Statistical Physics"
+    ]
+  },
+  "LF-12": {
+    "nome": "Teorema de Helmholtz",
+    "curso": "Licenciatura em Física",
+    "disciplinas": [
+      "Eletromagnetismo",
+      "Campos Vetoriais"
+    ],
+    "formulação": "Campo vetorial = gradiente de escalar + rotacional de vetor",
+    "contexto_historico": "Hermann von Helmholtz, século XIX. Decomposição fundamental de campos.",
+    "estrategia_principal": "Decompor campo em partes irrotacional e solenoidal",
+    "padrao_raciocinio": "Geral → Componentes elementares",
+    "aplicacao_curso": "Análise de campos eletromagnéticos e fluidos",
+    "tags": {
+      "aplicacao": [
+        "decomposicao_campo",
+        "eletromagnetismo",
+        "fluidos"
+      ],
+      "tecnica": [
+        "potencial_escalar",
+        "potencial_vecorial",
+        "divergente_rotacional"
+      ],
+      "conceito": [
+        "campo_irrotacional",
+        "campo_solenoidal",
+        "unicidade"
+      ],
+      "estrategia": [
+        "decomposicao_ortogonal",
+        "potenciais"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Decompor campo vetorial simples em partes"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Aplicar a campo eletrostático e magnetostático"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Usar em formulação de equações de Maxwell em potenciais"
+      }
+    ],
+    "leituras": [
+      "Griffiths Eletrodinâmica",
+      "Jackson Eletrodinâmica",
+      "Morse Feshbach"
+    ]
+  },
+  "LF-13": {
+    "nome": "Teorema de Pythagoras (Física)",
+    "curso": "Licenciatura em Física",
+    "disciplinas": [
+      "Mecânica Clássica",
+      "Relatividade"
+    ],
+    "formulação": "ds² = dx² + dy² + dz² (euclidiano) ou ds² = -c²dt² + dx² + dy² + dz² (Minkowski)",
+    "contexto_historico": "Generalização para espaços métricos, fundamental em relatividade.",
+    "estrategia_principal": "Medida de distância em espaços com métrica",
+    "padrao_raciocinio": "Geométrico → Físico",
+    "aplicacao_curso": "Cálculo de intervalos espaço-temporais em relatividade",
+    "tags": {
+      "aplicacao": [
+        "intervalo_espaço_tempo",
+        "metrica",
+        "relatividade"
+      ],
+      "tecnica": [
+        "produto_escalar",
+        "tensor_metrica",
+        "invariante_lorentz"
+      ],
+      "conceito": [
+        "espaco_minkowski",
+        "intervalo_invariante",
+        "geometria_riemanniana"
+      ],
+      "estrategia": [
+        "metrica_generalizada",
+        "invariância"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular distância euclidiana entre dois pontos"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Calcular intervalo espaço-temporal em relatividade"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em métrica de Schwarzschild para buracos negros"
+      }
+    ],
+    "leituras": [
+      "Taylor Wheeler Spacetime Physics",
+      "Hartle Gravity",
+      "Misner Thorne Wheeler"
+    ]
+  },
+  "SI-01": {
+    "nome": "Teorema de Cook-Levin",
+    "curso": "Sistemas de Informação",
+    "disciplinas": [
+      "Complexidade Computacional",
+      "Teoria da Computação"
+    ],
+    "formulação": "SAT é NP-completo - todo problema em NP reduz-se a ele em tempo polinomial",
+    "contexto_historico": "Stephen Cook (1971) e Leonid Levin (1973) independentemente.",
+    "estrategia_principal": "Redução polinomial entre problemas",
+    "padrao_raciocinio": "Do geral (classe NP) para o específico (SAT)",
+    "aplicacao_curso": "Identificação de problemas intratáveis em desenvolvimento de software",
+    "tags": {
+      "aplicacao": [
+        "np_completude",
+        "intratabilidade",
+        "complexidade"
+      ],
+      "tecnica": [
+        "reducao_polynomial",
+        "satisfatibilidade",
+        "prova_np"
+      ],
+      "conceito": [
+        "classe_P",
+        "classe_NP",
+        "np_completo"
+      ],
+      "estrategia": [
+        "reducao",
+        "prova_por_construcao"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Explicar diferença entre P e NP com exemplos"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Descrever a redução de Clique para SAT"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Demonstrar NP-completude de um novo problema de roteamento"
+      }
+    ],
+    "leituras": [
+      "Sipser Introdução Teoria Computação",
+      "Cormen Algoritmos",
+      "Polya cap. 6"
+    ]
+  },
+  "SI-02": {
+    "nome": "Teorema da Parada (Halting Problem)",
+    "curso": "Sistemas de Informação",
+    "disciplinas": [
+      "Teoria da Computação",
+      "Lógica"
+    ],
+    "formulação": "Não existe algoritmo que determine se um programa arbitrário para ou roda para sempre",
+    "contexto_historico": "Alan Turing, 1936. Fundamento da indecidibilidade.",
+    "estrategia_principal": "Prova por contradição e auto-referência",
+    "padrao_raciocinio": "Assumir existência → Contradição lógica",
+    "aplicacao_curso": "Compreensão dos limites da computação e verificação de software",
+    "tags": {
+      "aplicacao": [
+        "indecidibilidade",
+        "limites_computacao",
+        "verificacao_software"
+      ],
+      "tecnica": [
+        "contradicao",
+        "auto_referencia",
+        "maquina_turing"
+      ],
+      "conceito": [
+        "computabilidade",
+        "problema_indcidivel",
+        "algoritmo_universal"
+      ],
+      "estrategia": [
+        "reductio_ad_absurdum",
+        "diagonalizacao"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Explicar o paradoxo da máquina que para se não parar"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Relacionar com problemas de detecção de vírus"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Discutir implicações para Inteligência Artificial Geral"
+      }
+    ],
+    "leituras": [
+      "Turing Original Paper",
+      "Sipser Teoria Computação",
+      "Hofstadter Gödel Escher Bach"
+    ]
+  },
+  "SI-03": {
+    "nome": "Teorema de Ramsey",
+    "curso": "Sistemas de Informação",
+    "disciplinas": [
+      "Matemática Discreta",
+      "Teoria dos Grafos"
+    ],
+    "formulação": "Em qualquer coloração de arestas de grafo completo suficientemente grande, existe subgrafo monocromático",
+    "contexto_historico": "Frank P. Ramsey, 1930. Fundamento da teoria de ordem em estruturas grandes.",
+    "estrategia_principal": "Garantia de ordem em caos aparente",
+    "padrao_raciocinio": "Estrutura grande → Subestrutura ordenada",
+    "aplicacao_curso": "Análise de redes sociais, otimização combinatória e protocolos",
+    "tags": {
+      "aplicacao": [
+        "redes_sociais",
+        "otimizacao_combinatoria",
+        "garantia_estrutura"
+      ],
+      "tecnica": [
+        "coloracao_arestas",
+        "subgrafo",
+        "inducao"
+      ],
+      "conceito": [
+        "teoria_ramsey",
+        "numeros_ramsey",
+        "ordem_forçada"
+      ],
+      "estrategia": [
+        "forca_bruta_estrutural",
+        "pigeonhole_generalizado"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Encontrar triângulo monocromático em K6 colorido"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Estimar número de Ramsey R(3,3)"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em análise de cliques em redes de comunicação"
+      }
+    ],
+    "leituras": [
+      "Bollobás Combinatorics",
+      "West Graph Theory",
+      "Polya cap. 5"
+    ]
+  },
+  "SI-04": {
+    "nome": "Teorema de Bayes",
+    "curso": "Sistemas de Informação",
+    "disciplinas": [
+      "Probabilidade",
+      "Aprendizado de Máquina"
+    ],
+    "formulação": "P(A|B) = P(B|A)P(A) / P(B)",
+    "contexto_historico": "Thomas Bayes, século XVIII. Base da inferência estatística moderna.",
+    "estrategia_principal": "Atualização de crenças com nova evidência",
+    "padrao_raciocinio": "Priori → Evidência → Posteriori",
+    "aplicacao_curso": "Filtros de spam, diagnósticos médicos e redes bayesianas",
+    "tags": {
+      "aplicacao": [
+        "inferencia",
+        "spam_filter",
+        "diagnostico",
+        "ml"
+      ],
+      "tecnica": [
+        "probabilidade_condicional",
+        "verossimilhanca",
+        "normalizacao"
+      ],
+      "conceito": [
+        "probabilidade_a_priori",
+        "probabilidade_a_posteriori",
+        "evidencia"
+      ],
+      "estrategia": [
+        "atualizacao_belief",
+        "raciocinio_reverso"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular probabilidade de doença dado teste positivo"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Implementar classificador Naive Bayes simples"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em rede bayesiana para diagnóstico de falhas"
+      }
+    ],
+    "leituras": [
+      "Russell Norvig AI",
+      "Gelman Bayesian Data Analysis",
+      "Thrun Probabilistic Robotics"
+    ]
+  },
+  "SI-05": {
+    "nome": "Teorema de Gödel (Computação)",
+    "curso": "Sistemas de Informação",
+    "disciplinas": [
+      "Lógica Matemática",
+      "Fundamentos"
+    ],
+    "formulação": "Sistemas formais suficientemente complexos contêm afirmações indecidíveis",
+    "contexto_historico": "Kurt Gödel, 1931. Impacto direto na teoria da computação.",
+    "estrategia_principal": "Limitação intrínseca de sistemas axiomáticos",
+    "padrao_raciocinio": "Sistema → Meta-sistema → Limitação",
+    "aplicacao_curso": "Entendimento de limites de compiladores e verificadores formais",
+    "tags": {
+      "aplicacao": [
+        "limites_formais",
+        "indecidibilidade",
+        "compiladores"
+      ],
+      "tecnica": [
+        "codificacao",
+        "auto_referencia",
+        "consistencia"
+      ],
+      "conceito": [
+        "sistema_formal",
+        "verdade_vs_prova",
+        "incompletude"
+      ],
+      "estrategia": [
+        "meta_linguagem",
+        "limitacao_sistema"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Relacionar Gödel com o problema da parada"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Discutir implicações para verificação automática de código"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Analisar limites de sistemas de prova automatizados"
+      }
+    ],
+    "leituras": [
+      "Gödel Original",
+      "Hofstadter",
+      "Sipser"
+    ]
+  },
+  "SI-06": {
+    "nome": "Teorema de Cantor",
+    "curso": "Sistemas de Informação",
+    "disciplinas": [
+      "Teoria dos Conjuntos",
+      "Matemática Discreta"
+    ],
+    "formulação": "O conjunto das partes de A tem cardinalidade estritamente maior que A",
+    "contexto_historico": "Georg Cantor, século XIX. Fundamento da teoria dos infinitos.",
+    "estrategia_principal": "Argumento diagonal para mostrar diferentes tamanhos de infinito",
+    "padrao_raciocinio": "Contagem → Contradição diagonal",
+    "aplicacao_curso": "Compreensão de hierarquia de complexidade e limites de representação",
+    "tags": {
+      "aplicacao": [
+        "infinito",
+        "cardinalidade",
+        "hierarquia"
+      ],
+      "tecnica": [
+        "argumento_diagonal",
+        "bijecao",
+        "conjunto_partes"
+      ],
+      "conceito": [
+        "infinito_contavel",
+        "infinito_nao_contavel",
+        "aleph"
+      ],
+      "estrategia": [
+        "contradicao_diagonal",
+        "mapeamento_impossivel"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Provar que reais são não contáveis usando Cantor"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Comparar cardinalidade de strings binárias e números reais"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Discutir implicações para teoria da computabilidade"
+      }
+    ],
+    "leituras": [
+      "Enderton Elements of Set Theory",
+      "Halmos Naive Set Theory",
+      "Sipser"
+    ]
+  },
+  "SI-07": {
+    "nome": "Teorema de Fermat Pequeno",
+    "curso": "Sistemas de Informação",
+    "disciplinas": [
+      "Teoria dos Números",
+      "Criptografia"
+    ],
+    "formulação": "Se p é primo e a não é múltiplo de p, então a^(p-1) ≡ 1 (mod p)",
+    "contexto_historico": "Pierre de Fermat, século XVII. Base da criptografia RSA.",
+    "estrategia_principal": "Propriedades de congruência modular",
+    "padrao_raciocinio": "Aritmética modular → Potenciação",
+    "aplicacao_curso": "Algoritmos de criptografia de chave pública e testes de primalidade",
+    "tags": {
+      "aplicacao": [
+        "criptografia",
+        "rsa",
+        "testes_primalidade"
+      ],
+      "tecnica": [
+        "modulo",
+        "potenciacao",
+        "congruencia"
+      ],
+      "conceito": [
+        "numero_primo",
+        "anel_modular",
+        "inverso_multiplicativo"
+      ],
+      "estrategia": [
+        "reducao_modular",
+        "propriedade_ciclica"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular 3^10 mod 11"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Usar para testar primalidade de número pequeno"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Explicar papel no algoritmo RSA de criptografia"
+      }
+    ],
+    "leituras": [
+      "Rosen Teoria dos Números",
+      "Stallings Criptografia",
+      "Cormen Algoritmos"
+    ]
+  },
+  "SI-08": {
+    "nome": "Teorema de Euler (Grafos)",
+    "curso": "Sistemas de Informação",
+    "disciplinas": [
+      "Teoria dos Grafos",
+      "Algoritmos"
+    ],
+    "formulação": "Grafo conexo tem ciclo euleriano se e somente se todos os vértices têm grau par",
+    "contexto_historico": "Leonhard Euler, 1736. Primeiro teorema da teoria dos grafos (Ponte de Königsberg).",
+    "estrategia_principal": "Condição necessária e suficiente para existência de caminho",
+    "padrao_raciocinio": "Grau vértice → Existência caminho",
+    "aplicacao_curso": "Otimização de rotas de entrega, inspeção de redes e circuitos",
+    "tags": {
+      "aplicacao": [
+        "roteamento",
+        "inspecao_redes",
+        "caminho_optimo"
+      ],
+      "tecnica": [
+        "grau_vertice",
+        "ciclo_euleriano",
+        "algoritmo_hierholzer"
+      ],
+      "conceito": [
+        "caminho_euleriano",
+        "circuito",
+        "conectividade"
+      ],
+      "estrategia": [
+        "condicao_existencia",
+        "construcao_caminho"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Verificar se grafo dado tem ciclo euleriano"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Encontrar ciclo euleriano em grafo de ruas"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Otimizar rota de coleta de lixo em cidade"
+      }
+    ],
+    "leituras": [
+      "West Graph Theory",
+      "Bondy Murty",
+      "Cormen Algoritmos"
+    ]
+  },
+  "SI-09": {
+    "nome": "Teorema de Kuratowski",
+    "curso": "Sistemas de Informação",
+    "disciplinas": [
+      "Teoria dos Grafos",
+      "Visualização"
+    ],
+    "formulação": "Grafo é planar se e somente se não contém subdivisão de K5 ou K3,3",
+    "contexto_historico": "Kazimierz Kuratowski, 1930. Caracterização de grafos planares.",
+    "estrategia_principal": "Proibir subestruturas não planares",
+    "padrao_raciocinio": "Estrutura proibida → Não planar",
+    "aplicacao_curso": "Layout de circuitos integrados e visualização de redes sem cruzamentos",
+    "tags": {
+      "aplicacao": [
+        "layout_circuitos",
+        "visualizacao",
+        "planaridade"
+      ],
+      "tecnica": [
+        "subdivisao",
+        "menor_grafo",
+        "test_planaridade"
+      ],
+      "conceito": [
+        "grafo_planar",
+        "embedding",
+        "cruzamento"
+      ],
+      "estrategia": [
+        "exclusao_subestrutura",
+        "teste_topologico"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Identificar K3,3 em grafo dado"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Provar que K5 não é planar"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em projeto de PCB de circuito integrado"
+      }
+    ],
+    "leituras": [
+      "West Graph Theory",
+      "Diestel Graph Theory",
+      "Gross Yellen"
+    ]
+  },
+  "SI-10": {
+    "nome": "Teorema de Hall (Casamento)",
+    "curso": "Sistemas de Informação",
+    "disciplinas": [
+      "Teoria dos Grafos",
+      "Otimização Combinatória"
+    ],
+    "formulação": "Grafo bipartido tem emparelhamento perfeito se e somente se condição de Hall é satisfeita",
+    "contexto_historico": "Philip Hall, 1935. Problema de casamento e alocação.",
+    "estrategia_principal": "Condição de vizinhança para emparelhamento",
+    "padrao_raciocinio": "Conjunto → Vizinhos → Tamanho",
+    "aplicacao_curso": "Alocação de tarefas, matching em redes e agendamento",
+    "tags": {
+      "aplicacao": [
+        "alocacao_tarefas",
+        "matching",
+        "agendamento"
+      ],
+      "tecnica": [
+        "grafo_bipartido",
+        "vizinhanca",
+        "emparelhamento"
+      ],
+      "conceito": [
+        "casamento_estavel",
+        "condicao_hall",
+        "cobertura"
+      ],
+      "estrategia": [
+        "contagem_vizinhanca",
+        "alocacao_gulosa"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Verificar condição de Hall em pequeno grafo"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Encontrar matching máximo em grafo de tarefas"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Aplicar em sistema de recomendação de parceiros"
+      }
+    ],
+    "leituras": [
+      "West Graph Theory",
+      "Lovasz Combinatorial Problems",
+      "Cormen Algoritmos"
+    ]
+  },
+  "SI-11": {
+    "nome": "Teorema de Dijkstra",
+    "curso": "Sistemas de Informação",
+    "disciplinas": [
+      "Algoritmos",
+      "Redes de Computadores"
+    ],
+    "formulação": "Algoritmo guloso encontra caminho mínimo em grafo com pesos não negativos",
+    "contexto_historico": "Edsger Dijkstra, 1956. Algoritmo fundamental de roteamento.",
+    "estrategia_principal": "Expansão gulosa baseada em distância mínima conhecida",
+    "padrao_raciocinio": "Local ótimo → Global ótimo",
+    "aplicacao_curso": "Roteamento em redes (OSPF), GPS e logística",
+    "tags": {
+      "aplicacao": [
+        "roteamento",
+        "gps",
+        "logistica",
+        "caminho_minimo"
+      ],
+      "tecnica": [
+        "fila_prioridade",
+        "relaxamento",
+        "guloso"
+      ],
+      "conceito": [
+        "caminho_minimo",
+        "peso_nao_negativo",
+        "optimalidade_subestrutura"
+      ],
+      "estrategia": [
+        "programacao_dinamica_gulosa",
+        "expansao_ordem"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Executar Dijkstra manualmente em grafo pequeno"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Implementar Dijkstra com heap binário"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Otimizar roteamento em rede de grande escala"
+      }
+    ],
+    "leituras": [
+      "Cormen Algoritmos",
+      "Dijkstra Original",
+      "Kurose Ross Redes"
+    ]
+  },
+  "SI-12": {
+    "nome": "Teorema de Floyd-Warshall",
+    "curso": "Sistemas de Informação",
+    "disciplinas": [
+      "Algoritmos",
+      "Grafos"
+    ],
+    "formulação": "Encontra caminhos mínimos entre todos os pares de vértices em O(V³)",
+    "contexto_historico": "Robert Floyd, Stephen Warshall, 1962. Programação dinâmica para grafos.",
+    "estrategia_principal": "Programação dinâmica com intermediários",
+    "padrao_raciocinio": "Subproblemas menores → Solução global",
+    "aplicacao_curso": "Análise de conectividade, transitividade e roteamento em redes pequenas",
+    "tags": {
+      "aplicacao": [
+        "todos_pares",
+        "conectividade",
+        "transitividade"
+      ],
+      "tecnica": [
+        "programacao_dinamica",
+        "matriz_distancia",
+        "intermediario"
+      ],
+      "conceito": [
+        "caminho_minimo",
+        "complexidade_cubica",
+        "fecho_transitivo"
+      ],
+      "estrategia": [
+        "iteracao_intermediarios",
+        "relaxamento_global"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Calcular matriz de distâncias para grafo 4 vértices"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Implementar Floyd-Warshall e recuperar caminho"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Comparar eficiência com múltiplas execuções de Dijkstra"
+      }
+    ],
+    "leituras": [
+      "Cormen Algoritmos",
+      "Sedgewick Algoritmos",
+      "Gallo Longo"
+    ]
+  },
+  "SI-13": {
+    "nome": "Teorema de Huffman",
+    "curso": "Sistemas de Informação",
+    "disciplinas": [
+      "Estrutura de Dados",
+      "Compressão de Dados"
+    ],
+    "formulação": "Código prefixo ótimo minimiza comprimento esperado de mensagem",
+    "contexto_historico": "David Huffman, 1952. Algoritmo guloso para compressão ótima.",
+    "estrategia_principal": "Construção de árvore binária por fusão de menores frequências",
+    "padrao_raciocinio": "Frequência → Árvore → Código",
+    "aplicacao_curso": "Compressão de arquivos (ZIP, JPEG, MP3) e transmissão eficiente",
+    "tags": {
+      "aplicacao": [
+        "compressao",
+        "codificacao",
+        "transmissao"
+      ],
+      "tecnica": [
+        "arvore_binaria",
+        "fila_prioridade",
+        "codigo_prefixo"
+      ],
+      "conceito": [
+        "entropia",
+        "comprimento_esperado",
+        "optimalidade"
+      ],
+      "estrategia": [
+        "guloso_fundicao",
+        "arvore_ponderada"
+      ]
+    },
+    "exercicios": [
+      {
+        "nivel": "basico",
+        "enunciado": "Construir árvore de Huffman para string dada"
+      },
+      {
+        "nivel": "intermediario",
+        "enunciado": "Calcular ganho de compressão em arquivo texto"
+      },
+      {
+        "nivel": "avancado",
+        "enunciado": "Implementar compressor/decompressor completo"
+      }
+    ],
+    "leituras": [
+      "Huffman Original",
+      "Cormen Algoritmos",
+      "Sayood Introduction to Data Compression"
+    ]
+  }
+}
