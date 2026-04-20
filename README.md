@@ -6,7 +6,8 @@
 
 **Sistema de estudos em heurística matemática para os cursos do IFSP**, inspirado no método de George Polya. Explore 50 teoremas fundamentais, com formulações, contexto histórico, estratégias de resolução, exercícios e leituras complementares.
 
-![Tela principal](docs/screenshot_main.png)
+![Tela principal]
+
 ![Detalhes do teorema](docs/screenshot_details.png)
 
 ## ✨ Funcionalidades
