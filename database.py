@@ -253,6 +253,20 @@ class BancoDadosHeuristica:
             cursor = conn.cursor()
             cursor.execute("SELECT DISTINCT estrategia_principal FROM teoremas WHERE estrategia_principal IS NOT NULL ORDER BY estrategia_principal")
             return [row[0] for row in cursor.fetchall()]
+            
+    def get_exercicios(self, teorema_id):
+        with sqlite3.connect(self.db_path) as conn:
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+            cursor.execute("SELECT nivel, enunciado FROM exercicios WHERE teorema_id = ?", (teorema_id,))
+            return [dict(row) for row in cursor.fetchall()]
+
+    def get_leituras(self, teorema_id):
+        with sqlite3.connect(self.db_path) as conn:
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+            cursor.execute("SELECT referencia FROM leituras WHERE teorema_id = ?", (teorema_id,))
+            return [dict(row) for row in cursor.fetchall()]
 
     def fechar(self):
         pass

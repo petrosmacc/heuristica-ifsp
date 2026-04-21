@@ -143,9 +143,7 @@ else:
         col_ex, col_leit = st.columns(2)
         with col_ex:
             st.subheader("✍️ Exercícios")
-            cursor = db.conn.cursor()
-            cursor.execute("SELECT nivel, enunciado FROM exercicios WHERE teorema_id = ?", (teorema['id'],))
-            exercicios = cursor.fetchall()
+            exercicios = db.get_exercicios(teorema['id'])
             if exercicios:
                 for ex in exercicios:
                     with st.expander(f"[{ex['nivel'].upper()}] {ex['enunciado'][:50]}..."):
@@ -154,8 +152,7 @@ else:
                 st.info("Nenhum exercício cadastrado.")
         with col_leit:
             st.subheader("📖 Leituras Complementares")
-            cursor.execute("SELECT referencia FROM leituras WHERE teorema_id = ?", (teorema['id'],))
-            leituras = cursor.fetchall()
+            leituras = db.get_leituras(teorema['id'])
             if leituras:
                 for ref in leituras:
                     st.markdown(f"- {ref['referencia']}")

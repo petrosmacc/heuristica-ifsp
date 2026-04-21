@@ -110,12 +110,8 @@ class GeradorRelatorios:
         if not teorema:
             return f"❌ Teorema {codigo} não encontrado."
 
-        cursor = self.db.conn.cursor()
-        cursor.execute("SELECT nivel, enunciado FROM exercicios WHERE teorema_id = ?", (teorema['id'],))
-        exercicios = cursor.fetchall()
-
-        cursor.execute("SELECT referencia FROM leituras WHERE teorema_id = ?", (teorema['id'],))
-        leituras = cursor.fetchall()
+        exercicios = self.db.get_exercicios(teorema['id'])
+        leituras = self.db.get_leituras(teorema['id'])
 
         tags_list = teorema['tags'].split(',') if teorema['tags'] else []
         disc_list = teorema['disciplinas'].split(',') if teorema['disciplinas'] else []
