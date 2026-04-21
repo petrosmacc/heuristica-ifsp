@@ -1,4 +1,4 @@
-# database.py (versão corrigida para threading)
+# database.py (versão final thread-safe)
 import sqlite3
 import json
 from pathlib import Path
@@ -14,7 +14,7 @@ class BancoDadosHeuristica:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        pass  # não precisa fechar nada, cada operação já fecha sua conexão
+        pass
 
     def criar_schema(self):
         with sqlite3.connect(self.db_path) as conn:
@@ -37,10 +37,98 @@ class BancoDadosHeuristica:
             with open(json_path, "r", encoding="utf-8") as f:
                 teoremas_data = json.load(f)
 
-            # ... (restante da lógica de inserção, mesma de antes, mas usando a conexão `conn`)
-            # Certifique-se de usar `conn` em vez de `self.conn`
-            # Exemplo: cursor.execute(...); conn.commit()
-            # ...
+            all_disciplinas = set()
+            all_tags = set()
+
+            for codigo, info in teoremas_data.items():
+                for disc in info['disciplinas']:
+                    all_disciplinas.add((disc, info['curso']))
+                for cat, tags_list in info['tags'].items():
+                    for tag in tags_list:
+                        all_tags.add((tag, cat))
+
+            # Inserir Disciplinas
+            for nome, curso in all_disciplinas:
+                cursor.execute(
+                    "INSERT OR IGNORE INTO disciplinas (nome, curso) VALUES (?, ?)",
+                    (nome, curso)
+                )
+
+            # Inserir Tags
+            for nome, cat in all_tags:
+                cursor.execute(
+                    "INSERT OR IGNORE INTO tags (nome, categoria) VALUES (?, ?)",
+                    (nome, cat)
+                )
+
+            conn.commit()
+
+            # Inserir Teoremas e relacionamentos
+            for codigo, info in teoremas_data.items():
+                pre_req = info.get('pre_requisitos')
+                if isinstance(pre_req, list):
+                    pre_req = ', '.join(pre_req)
+                tecnicas = info.get('tecnicas_resolucao')
+                if isinstance(tecnicas, list):
+                    tecnicas = ', '.join(tecnicas)
+
+                cursor.execute("""
+                    INSERT INTO teoremas (
+                        codigo, nome, curso, formulacao, contexto_historico,
+                        estrategia_principal, padrao_raciocinio, aplicacao_curso,
+                        pre_requisitos, tecnicas_resolucao, intuicao, analogias, curiosidades
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (
+                    codigo,
+                    info['nome'],
+                    info['curso'],
+                    info['formulação'],
+                    info['contexto_historico'],
+                    info['estrategia_principal'],
+                    info['padrao_raciocinio'],
+                    info['aplicacao_curso'],
+                    pre_req,
+                    tecnicas,
+                    info.get('intuicao'),
+                    info.get('analogias'),
+                    info.get('curiosidades')
+                ))
+                teorema_id = cursor.lastrowid
+
+                # Disciplinas
+                for disc in info['disciplinas']:
+                    cursor.execute("SELECT id FROM disciplinas WHERE nome = ?", (disc,))
+                    disc_id = cursor.fetchone()[0]
+                    cursor.execute(
+                        "INSERT OR IGNORE INTO teorema_disciplinas (teorema_id, disciplina_id) VALUES (?, ?)",
+                        (teorema_id, disc_id)
+                    )
+
+                # Tags
+                for cat, tags_list in info['tags'].items():
+                    for tag in tags_list:
+                        cursor.execute("SELECT id FROM tags WHERE nome = ?", (tag,))
+                        tag_id = cursor.fetchone()[0]
+                        cursor.execute(
+                            "INSERT OR IGNORE INTO teorema_tags (teorema_id, tag_id) VALUES (?, ?)",
+                            (teorema_id, tag_id)
+                        )
+
+                # Exercícios
+                for ex in info.get('exercicios', []):
+                    cursor.execute(
+                        "INSERT INTO exercicios (teorema_id, nivel, enunciado) VALUES (?, ?, ?)",
+                        (teorema_id, ex['nivel'], ex['enunciado'])
+                    )
+
+                # Leituras
+                for ref in info.get('leituras', []):
+                    cursor.execute(
+                        "INSERT INTO leituras (teorema_id, referencia) VALUES (?, ?)",
+                        (teorema_id, ref)
+                    )
+
+            conn.commit()
             print(f"✅ {len(teoremas_data)} teoremas carregados com sucesso!")
 
     def buscar_teorema_por_codigo(self, codigo):
@@ -85,9 +173,66 @@ class BancoDadosHeuristica:
         with sqlite3.connect(self.db_path) as conn:
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
-            # ... (query montada dinamicamente, mesma lógica anterior)
-            # Certifique-se de usar a conexão local `conn`
-            # ...
+            query = """
+                SELECT DISTINCT t.* FROM teoremas t
+                LEFT JOIN teorema_tags tt ON t.id = tt.teorema_id
+                LEFT JOIN tags tg ON tt.tag_id = tg.id
+                WHERE 1=1
+            """
+            params = []
+
+            if curso:
+                query += " AND t.curso = ?"
+                params.append(curso)
+
+            if texto:
+                query += " AND (t.nome LIKE ? OR t.codigo LIKE ? OR t.formulacao LIKE ?)"
+                like = f"%{texto}%"
+                params.extend([like, like, like])
+
+            if estrategias:
+                or_clauses = []
+                for _ in estrategias:
+                    or_clauses.append("t.estrategia_principal LIKE ?")
+                query += " AND (" + " OR ".join(or_clauses) + ")"
+                for est in estrategias:
+                    params.append(f"%{est}%")
+
+            # Se houver tags, fazemos uma subconsulta para interseção
+            if tags:
+                tag_placeholders = ','.join(['?'] * len(tags))
+                subquery = f"""
+                    SELECT tt.teorema_id
+                    FROM teorema_tags tt
+                    JOIN tags tg ON tt.tag_id = tg.id
+                    WHERE tg.nome IN ({tag_placeholders})
+                    GROUP BY tt.teorema_id
+                    HAVING COUNT(DISTINCT tg.nome) = ?
+                """
+                # Adiciona os parâmetros das tags e o número de tags
+                params_tags = list(tags) + [len(tags)]
+                # Modifica a query principal para filtrar pelos IDs retornados
+                query = f"""
+                    SELECT t.* FROM teoremas t
+                    WHERE t.id IN ({subquery})
+                """
+                # Se já tínhamos outros filtros, adicionamos aqui
+                if curso:
+                    query += " AND t.curso = ?"
+                    params_tags.append(params.pop(0))  # remove curso dos params originais
+                if texto:
+                    query += " AND (t.nome LIKE ? OR t.codigo LIKE ? OR t.formulacao LIKE ?)"
+                    params_tags.extend(params[:3])
+                    params = params[3:]
+                if estrategias:
+                    or_clauses = []
+                    for _ in estrategias:
+                        or_clauses.append("t.estrategia_principal LIKE ?")
+                    query += " AND (" + " OR ".join(or_clauses) + ")"
+                    params_tags.extend(params)
+                params = params_tags
+
+            cursor.execute(query, params)
             return [dict(row) for row in cursor.fetchall()]
 
     def listar_todos(self):
@@ -110,4 +255,4 @@ class BancoDadosHeuristica:
             return [row[0] for row in cursor.fetchall()]
 
     def fechar(self):
-        pass  # não há mais conexão persistente
+        pass

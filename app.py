@@ -10,7 +10,6 @@ st.set_page_config(
     layout="wide"
 )
 
-@st.cache_resource
 def get_db():
     return BancoDadosHeuristica()
 
