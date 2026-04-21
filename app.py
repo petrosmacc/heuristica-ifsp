@@ -1,5 +1,8 @@
 # app.py
 import streamlit as st
+import networkx as nx
+import sqlite3
+from streamlit_agraph import agraph, Node, Edge, Config
 from database import BancoDadosHeuristica
 from reports import GeradorRelatorios
 from models import CURSOS
@@ -9,6 +12,61 @@ st.set_page_config(
     page_icon="📐",
     layout="wide"
 )
+
+def gerar_grafo_teoremas(db):
+    """Constrói um grafo interativo de teoremas e tags."""
+    with sqlite3.connect(db.db_path) as conn:
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT t.id, t.codigo, t.nome, GROUP_CONCAT(tg.nome) as tags
+            FROM teoremas t
+            LEFT JOIN teorema_tags tt ON t.id = tt.teorema_id
+            LEFT JOIN tags tg ON tt.tag_id = tg.id
+            GROUP BY t.id
+        """)
+        teoremas = cursor.fetchall()
+
+    nodes = []
+    edges = []
+    teorema_ids = set()
+    tag_names = set()
+
+    for t in teoremas:
+        if not t['tags']:
+            continue
+        teorema_ids.add(t['codigo'])
+        # Nó do teorema
+        nodes.append(Node(id=t['codigo'],
+                          label=t['codigo'],
+                          title=f"{t['nome']}\nClique para ver detalhes",
+                          color="#1f77b4",
+                          shape="dot",
+                          size=25))
+        tags = t['tags'].split(',')
+        for tag in tags:
+            tag = tag.strip()
+            tag_names.add(tag)
+            edges.append(Edge(source=t['codigo'], target=tag, label="tem tag"))
+
+    # Nós das tags
+    for tag in tag_names:
+        nodes.append(Node(id=tag,
+                          label=tag,
+                          color="#ff7f0e",
+                          shape="box",
+                          size=15))
+
+    config = Config(width=800,
+                    height=600,
+                    directed=False,
+                    physics=True,
+                    hierarchical=False,
+                    nodeHighlightBehavior=True,
+                    highlightColor="#F7A7A6",
+                    collapsible=True)
+
+    return nodes, edges, config
 
 def get_db():
     return BancoDadosHeuristica()
@@ -88,6 +146,16 @@ if st.session_state['teorema_sel_id'] is None:
                     if st.button("📖 Ver detalhes", key=f"btn_{t['id']}", use_container_width=True):
                         st.session_state['teorema_sel_id'] = t['id']
                         st.rerun()
+                            # ... (final do loop dos cards)
+
+    st.divider()
+    st.subheader("🌐 Mapa de Conexões entre Teoremas e Tags")
+    with st.spinner("Gerando grafo interativo..."):
+        try:
+            nodes, edges, config = gerar_grafo_teoremas(db)
+            agraph(nodes=nodes, edges=edges, config=config)
+        except Exception as e:
+            st.error(f"Não foi possível gerar o grafo: {e}")
 else:
     teorema = db.buscar_por_id(st.session_state['teorema_sel_id'])
     if not teorema:
