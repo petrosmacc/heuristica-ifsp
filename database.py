@@ -7,7 +7,7 @@ from models import CREATE_SCHEMA
 class BancoDadosHeuristica:
     def __init__(self, db_path="heuristica_ifsp.db"):
         self.db_path = db_path
-        self.conn = sqlite3.connect(db_path, timeout=30.0)
+        self.conn = sqlite3.connect(db_path, timeout=30.0, check_same_thread=False)
         self.conn.row_factory = sqlite3.Row
         self.criar_schema()
         self.migrate_schema()   # Adiciona novas colunas se necessário
