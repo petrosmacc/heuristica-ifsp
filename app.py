@@ -1,8 +1,8 @@
 # app.py
 import streamlit as st
 import networkx as nx
+import matplotlib.pyplot as plt
 import sqlite3
-from streamlit_agraph import agraph, Node, Edge, Config
 from database import BancoDadosHeuristica
 from reports import GeradorRelatorios
 from models import CURSOS
@@ -14,7 +14,7 @@ st.set_page_config(
 )
 
 def gerar_grafo_teoremas(db):
-    """Constrói um grafo interativo de teoremas e tags."""
+    """Constrói um grafo visual de teoremas e tags usando NetworkX + Matplotlib."""
     with sqlite3.connect(db.db_path) as conn:
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
@@ -27,46 +27,40 @@ def gerar_grafo_teoremas(db):
         """)
         teoremas = cursor.fetchall()
 
-    nodes = []
-    edges = []
-    teorema_ids = set()
-    tag_names = set()
-
+    G = nx.Graph()
     for t in teoremas:
         if not t['tags']:
             continue
-        teorema_ids.add(t['codigo'])
-        # Nó do teorema
-        nodes.append(Node(id=t['codigo'],
-                          label=t['codigo'],
-                          title=f"{t['nome']}\nClique para ver detalhes",
-                          color="#1f77b4",
-                          shape="dot",
-                          size=25))
+        G.add_node(t['codigo'], tipo='teorema', label=t['codigo'])
         tags = t['tags'].split(',')
         for tag in tags:
             tag = tag.strip()
-            tag_names.add(tag)
-            edges.append(Edge(source=t['codigo'], target=tag, label="tem tag"))
+            G.add_node(tag, tipo='tag', label=tag)
+            G.add_edge(t['codigo'], tag)
 
-    # Nós das tags
-    for tag in tag_names:
-        nodes.append(Node(id=tag,
-                          label=tag,
-                          color="#ff7f0e",
-                          shape="box",
-                          size=15))
+    # Configurar layout e cores
+    pos = nx.spring_layout(G, k=0.5, seed=42)
+    plt.figure(figsize=(12, 8))
 
-    config = Config(width=800,
-                    height=600,
-                    directed=False,
-                    physics=True,
-                    hierarchical=False,
-                    nodeHighlightBehavior=True,
-                    highlightColor="#F7A7A6",
-                    collapsible=True)
+    # Desenhar nós de teorema (azul)
+    teorema_nodes = [n for n, attr in G.nodes(data=True) if attr.get('tipo') == 'teorema']
+    nx.draw_networkx_nodes(G, pos, nodelist=teorema_nodes, node_color='#1f77b4', node_size=300, alpha=0.9)
 
-    return nodes, edges, config
+    # Desenhar nós de tag (laranja)
+    tag_nodes = [n for n, attr in G.nodes(data=True) if attr.get('tipo') == 'tag']
+    nx.draw_networkx_nodes(G, pos, nodelist=tag_nodes, node_color='#ff7f0e', node_size=100, alpha=0.8)
+
+    # Desenhar arestas
+    nx.draw_networkx_edges(G, pos, alpha=0.3, width=0.5)
+
+    # Rótulos (apenas para teoremas, para não poluir)
+    labels = {n: n for n in teorema_nodes}
+    nx.draw_networkx_labels(G, pos, labels, font_size=8, font_color='black')
+
+    plt.title("Mapa de Conexões: Teoremas e Tags", fontsize=16)
+    plt.axis('off')
+
+    return plt.gcf()
 
 def get_db():
     return BancoDadosHeuristica()
@@ -146,16 +140,16 @@ if st.session_state['teorema_sel_id'] is None:
                     if st.button("📖 Ver detalhes", key=f"btn_{t['id']}", use_container_width=True):
                         st.session_state['teorema_sel_id'] = t['id']
                         st.rerun()
-                            # ... (final do loop dos cards)
 
     st.divider()
     st.subheader("🌐 Mapa de Conexões entre Teoremas e Tags")
-    with st.spinner("Gerando grafo interativo..."):
+    with st.spinner("Gerando grafo..."):
         try:
-            nodes, edges, config = gerar_grafo_teoremas(db)
-            agraph(nodes=nodes, edges=edges, config=config)
+            fig = gerar_grafo_teoremas(db)
+            st.pyplot(fig)
         except Exception as e:
             st.error(f"Não foi possível gerar o grafo: {e}")
+
 else:
     teorema = db.buscar_por_id(st.session_state['teorema_sel_id'])
     if not teorema:
